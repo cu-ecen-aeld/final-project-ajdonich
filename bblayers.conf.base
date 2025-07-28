@@ -1,0 +1,14 @@
+# POKY_BBLAYERS_CONF_VERSION is increased each time build/conf/bblayers.conf
+# changes incompatibly
+POKY_BBLAYERS_CONF_VERSION = "2"
+
+BBPATH = "${TOPDIR}"
+BBFILES ?= ""
+
+BBLAYERS ?= " \
+  /home/ubuntu/final-project-ajdonich/poky/meta \
+  /home/ubuntu/final-project-ajdonich/poky/meta-poky \
+  /home/ubuntu/final-project-ajdonich/poky/meta-yocto-bsp \
+  /home/ubuntu/final-project-ajdonich/meta-raspberrypi \
+  /home/ubuntu/final-project-ajdonich/meta-spi-tft \
+  "
