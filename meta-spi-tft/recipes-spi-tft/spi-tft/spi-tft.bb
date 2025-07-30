@@ -21,5 +21,5 @@ addtask display_banner before do_install
 
 do_install () {
     install -d ${D}${ROOT_HOME}
-    install -m 0755 ${S}/README.md ${D}${ROOT_HOME}
+    install -m 0644 ${S}/README.md ${D}${ROOT_HOME}
 }
