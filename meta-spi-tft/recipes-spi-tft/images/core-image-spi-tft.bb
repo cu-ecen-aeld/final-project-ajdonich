@@ -2,8 +2,8 @@ inherit core-image
 inherit extrausers
 
 IMAGE_INSTALL:append = " spi-tft" 
-
 IMAGE_FEATURES:append = " ssh-server-openssh"
+IMAGE_BOOT_FILES:append = " devicetree/ilitft.dtbo;overlays/ilitft.dtbo"
 
 # PASSWD = `printf "%q" $(mkpasswd -m sha256crypt root)` # i.e. hash of "root"
 PASSWD = "\$5\$2WoxjAdaC2\$l4aj6Is.EWkD72Vt.byhM5qRtF9HcCM/5YpbxpmvNB5"

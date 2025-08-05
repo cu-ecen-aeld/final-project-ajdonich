@@ -279,7 +279,7 @@ PACKAGECONFIG:append:pn-qemu-system-native = " sdl"
 CONF_VERSION = "2"
 
 # Raspberry Pi specific flags
-ENABLE_SPI_BUS = "1"
+RPI_EXTRA_CONFIG = "dtoverlay=ilitft"
 ENABLE_UART = "1"
 
 # Uncomment one: qemuarm64 for QEMU build, raspberrypi4-64 for Pi Model 4B build.
