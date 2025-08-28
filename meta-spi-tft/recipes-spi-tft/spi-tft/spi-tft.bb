@@ -11,7 +11,12 @@ inherit deploy
 inherit module
 
 RPROVIDES:${PN} += "kernel-module-tftdriver"
-FILES:${PN}:append = " ${ROOT_HOME}/loadmodule.sh"
+FILES:${PN}:append = "\
+    ${ROOT_HOME}/loadmodule.sh \
+    ${ROOT_HOME}/TftGifStreamer \
+"
+
+TARGET_CC_ARCH += "${LDFLAGS}"
 DEPENDS += "dtc-native"
 
 do_compile_dtb () {
@@ -22,9 +27,14 @@ do_install_dtb () {
     install -Dm 0644 ${S}/ilitft.dtbo ${DEPLOY_DIR_IMAGE}/ilitft.dtbo
 }
 
+do_compile:append () {
+    oe_runmake -C ${S}/examples
+}
+
 do_install:append () {
     install -d ${D}${ROOT_HOME}
     install -m 0774 ${S}/loadmodule.sh ${D}${ROOT_HOME}
+    install -m 0774 ${S}/examples/TftGifStreamer ${D}${ROOT_HOME}
 }
 
 addtask compile_dtb before do_compile
